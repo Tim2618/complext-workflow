@@ -1,0 +1,26 @@
+name: complex workflow
+
+on:
+push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+    ubuntu:
+      runs-on: ubuntu-latest
+      setps: 
+      - run: date
+    windows:
+      runs-on: windows-latest
+      setps: 
+      - run: date
+    macos:
+      runs-on: macos-latest
+      setps: 
+      - run: date
+    depends: 
+      needs: [ ububtu , windows , macos ]
+      runs-on: macos-latest
+      setps: 
+      - run: date
